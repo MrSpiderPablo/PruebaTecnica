@@ -33,11 +33,9 @@ public abstract class BaseDAO {
             }
 
             Statement st = con.createStatement();
-            //System.out.println(sql2);
             st.execute(sql2);
 
             Statement st2 = con.createStatement();
-            //System.out.println(sql);
             st2.execute(sql);
 
 
