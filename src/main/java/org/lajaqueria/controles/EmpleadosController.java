@@ -71,9 +71,9 @@ public class EmpleadosController {
 
         List<Empleado> lista = empleadoDAO.getAll();
 
-        List<Empleado> lista2 = lista.stream().filter(empleado -> empleado.getDepartamento().getId()==id).toList();
+        return  lista.stream().filter(empleado -> empleado.getDepartamento().getId()==id).toList();
 
-        return lista2;
+
     }
 
     public double edadMediaByDepId(int id){
@@ -110,9 +110,8 @@ public class EmpleadosController {
 
         List<Empleado> lista = empleadoDAO.getAll();
 
-        List<Empleado> lista2 = lista.stream().filter(empleado -> empleado.getEdad()==edad).toList();
+        return lista.stream().filter(empleado -> empleado.getEdad()==edad).toList();
 
-        return lista2;
     }
 
 }
