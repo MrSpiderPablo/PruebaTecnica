@@ -8,19 +8,21 @@ public abstract class BaseDAO {
 
         String url = "jdbc:sqlite:" + dbPath;
 
-        String sql = "CREATE TABLE IF NOT EXISTS Empleados (\n" +
-                " id integer PRIMARY KEY, \n" +
-                " nombre text NOT NULL, \n" +
-                " apellido text NOT NULL, \n" +
-                " edad integer NOT NULL, \n" +
-                " departamento integer NOT NULL, \n" +
-                " FOREIGN KEY (departamento) REFERENCES Departamentos(id)\n" +
-                ");";
+        String sql = """
+                 CREATE TABLE IF NOT EXISTS Empleados (
+                 id integer PRIMARY KEY,
+                 nombre text NOT NULL,
+                 apellido text NOT NULL,
+                 edad integer NOT NULL,
+                 departamento integer NOT NULL,
+                 FOREIGN KEY (departamento) REFERENCES Departamentos(id)
+                );""";
 
-        String sql2 = "CREATE TABLE IF NOT EXISTS Departamentos (\n" +
-                " id integer PRIMARY KEY, \n" +
-                " nombreDep text NOT NULL\n" +
-                ");";
+        String sql2 = """
+                 CREATE TABLE IF NOT EXISTS Departamentos (
+                 id integer PRIMARY KEY,
+                 nombreDep text NOT NULL,
+                );""";
 
         try(Connection con = DriverManager.getConnection(url)) {
 
