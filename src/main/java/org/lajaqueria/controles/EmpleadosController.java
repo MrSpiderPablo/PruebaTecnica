@@ -14,11 +14,11 @@ import java.util.stream.Collectors;
 public class EmpleadosController {
 
     private EmpleadoDAO empleadoDAO;
-    //private Empleado empleado;
-    private DepartamentoDAO departamentoDAO;
-    //private Departamento departamento;
 
-    //String url = "";
+    private DepartamentoDAO departamentoDAO;
+
+
+    
 
     public EmpleadosController(EmpleadoDAO empleadoDAO, DepartamentoDAO departamentoDAO){
 
