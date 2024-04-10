@@ -133,7 +133,7 @@ public class Main {
                         empleadosController.actualizarDepartamento(departamento);
                         break;
                     case 4:
-                        //System.out.println("¿Qué empleado o departamento quiere consultar?: ");
+                        
                         try {
                             System.out.println("""
                                     ¿Qué desea hacer?:
