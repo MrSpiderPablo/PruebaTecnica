@@ -18,7 +18,7 @@ public class EmpleadosController {
     private DepartamentoDAO departamentoDAO;
 
 
-    
+
 
     public EmpleadosController(EmpleadoDAO empleadoDAO, DepartamentoDAO departamentoDAO){
 
@@ -71,7 +71,7 @@ public class EmpleadosController {
 
         List<Empleado> lista = empleadoDAO.getAll();
 
-        List<Empleado> lista2 = lista.stream().filter(empleado -> empleado.getDepartamento().getId()==id).collect(Collectors.toList());
+        List<Empleado> lista2 = lista.stream().filter(empleado -> empleado.getDepartamento().getId()==id).toList();
 
         return lista2;
     }
@@ -110,7 +110,7 @@ public class EmpleadosController {
 
         List<Empleado> lista = empleadoDAO.getAll();
 
-        List<Empleado> lista2 = lista.stream().filter(empleado -> empleado.getEdad()==edad).collect(Collectors.toList());
+        List<Empleado> lista2 = lista.stream().filter(empleado -> empleado.getEdad()==edad).toList();
 
         return lista2;
     }
