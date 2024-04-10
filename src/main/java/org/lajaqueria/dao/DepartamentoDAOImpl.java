@@ -1,7 +1,7 @@
 package org.lajaqueria.dao;
 
 import org.lajaqueria.core.Departamento;
-import org.lajaqueria.core.Empleado;
+
 
 import java.sql.*;
 import java.util.ArrayList;
