@@ -69,7 +69,7 @@ public class DepartamentoDAOImpl extends BaseDAO implements DepartamentoDAO {
 
     @Override
     public List<Departamento> getAll() {
-        String sql = "SELECT * FROM Departamentos";
+        String sql = "SELECT id, nombreDep FROM Departamentos";
 
         List<Departamento> list = new ArrayList<>();
 
@@ -93,7 +93,7 @@ public class DepartamentoDAOImpl extends BaseDAO implements DepartamentoDAO {
     @Override
     public Departamento obtenerDepartamentoPorId(int id) {
 
-        String sql = "SELECT * FROM Departamentos WHERE id = ?";
+        String sql = "SELECT id, nombreDep FROM Departamentos WHERE id = ?";
 
         try(Connection con = this.connect();
             PreparedStatement psmt3 = con.prepareStatement(sql)) {

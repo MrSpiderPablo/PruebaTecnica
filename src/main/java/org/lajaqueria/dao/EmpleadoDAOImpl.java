@@ -76,7 +76,7 @@ public class EmpleadoDAOImpl extends BaseDAO implements EmpleadoDAO {
     @Override
     public List<Empleado> getAll() {
 
-        String sql = "SELECT * FROM Empleados";
+        String sql = "SELECT id, nombre, apellido, edad, departamento FROM Empleados";
 
         List<Empleado> list = new ArrayList<>();
 
@@ -100,7 +100,7 @@ public class EmpleadoDAOImpl extends BaseDAO implements EmpleadoDAO {
     @Override
     public Empleado obtenerEmpleadoPorId(int id) {
 
-        String sql = "SELECT * FROM Empleados WHERE id = ?";
+        String sql = "SELECT id, nombre, apellido, edad, departamento FROM Empleados WHERE id = ?";
 
         try(Connection con = this.connect();
         PreparedStatement pstmt3 = con.prepareStatement(sql)) {
