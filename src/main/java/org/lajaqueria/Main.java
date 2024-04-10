@@ -185,6 +185,8 @@ public class Main {
 
                                     System.out.println("Lista de empleados por edad: " + lista2);
                                     break;
+                                default:
+                                    System.out.println("Esta opción no existe");
                             }
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
@@ -193,6 +195,8 @@ public class Main {
                     case 0:
                         System.out.println("¡Al fin se acabó!");
                         break;
+                    default:
+                        System.out.println("Esta opción no existe");
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
