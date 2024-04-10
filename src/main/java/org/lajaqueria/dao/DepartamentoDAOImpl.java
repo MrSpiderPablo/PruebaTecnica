@@ -126,7 +126,7 @@ public class DepartamentoDAOImpl extends BaseDAO implements DepartamentoDAO {
     }
 
     @Override
-    public Departamento actuañizarDepartamento(Departamento departamento) {
+    public Departamento actualizarDepartamento(Departamento departamento) {
         String sql = "UPDATE Departamentos SET  nombreDep = ? WHERE id = ?";
 
         try(Connection con = this.connect();

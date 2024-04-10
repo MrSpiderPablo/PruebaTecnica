@@ -14,5 +14,5 @@ public interface DepartamentoDAO {
 
     Departamento obtenerDepartamentoPorId(int id);
 
-    Departamento actuañizarDepartamento(Departamento departamento);
+    Departamento actualizarDepartamento(Departamento departamento);
 }
