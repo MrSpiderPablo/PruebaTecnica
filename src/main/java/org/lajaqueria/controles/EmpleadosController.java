@@ -80,13 +80,12 @@ public class EmpleadosController {
 
         List<Empleado> lista = empleadoDAO.getAll();
 
-        double media =
-        lista.stream().filter(empleado -> empleado.getDepartamento().getId()==id)
+        return lista.stream().filter(empleado -> empleado.getDepartamento().getId()==id)
                 .mapToDouble(Empleado::getEdad)
                 .average()
                 .orElse(0);
 
-        return media;
+
 
     }
 
