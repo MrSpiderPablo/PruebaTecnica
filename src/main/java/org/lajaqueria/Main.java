@@ -27,16 +27,20 @@ public class Main {
         Departamento departamento = new Departamento();
         int idDepartamento;
         String nombreDep = "";
+        String menu = """
+                        Elige opción:
+                        1. - Insertar
+                        2. - Borrar
+                        3. - Actualizar
+                        4. - Consultar
+                        0. - Salir""";
 
         do {
 
 
             try {
-                System.out.println("Elige opción:\n1. - Insertar" +
-                        "\n2. - Borrar\n" +
-                        "3. - Actualizar\n" +
-                        "4. - Consultar\n" +
-                        "0. - Salir");
+
+                System.out.println(menu);
                 opcion = Integer.parseInt(scanner.nextLine());
 
                 switch (opcion) {
@@ -129,11 +133,13 @@ public class Main {
                     case 4:
                         //System.out.println("¿Qué empleado o departamento quiere consultar?: ");
                         try {
-                            System.out.println("¿Qué desea hacer?:\n1. - Obtener empleados por ID de departamento" +
-                                    "\n2. - Obtener la edad media de un grupo de empleados por ID de departamento\n" +
-                                    "3. - Empleado más joven\n" +
-                                    "4. - Empleado más viejo\n" +
-                                    "5. - Lista de empleados por la edad");
+                            System.out.println("""
+                                    ¿Qué desea hacer?:
+                                    1. - Obtener empleados por ID de departamento
+                                    2. - Obtener la edad media de un grupo de empleados por ID de departamento
+                                    3. - Empleado más joven
+                                    4. - Empleado más viejo
+                                    5. - Lista de empleados por la edad""");
                             opcion = Integer.parseInt(scanner.nextLine());
 
                             switch (opcion) {
