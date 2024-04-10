@@ -133,66 +133,8 @@ public class Main {
                         empleadosController.actualizarDepartamento(departamento);
                         break;
                     case 4:
-                        
-                        try {
-                            System.out.println("""
-                                    ¿Qué desea hacer?:
-                                    1. - Obtener empleados por ID de departamento
-                                    2. - Obtener la edad media de un grupo de empleados por ID de departamento
-                                    3. - Empleado más joven
-                                    4. - Empleado más viejo
-                                    5. - Lista de empleados por la edad""");
-                            opcion = Integer.parseInt(scanner.nextLine());
+                            submenu(empleadosController);
 
-                            switch (opcion) {
-                                case 1:
-
-                                    System.out.println("Introduce el id del departamento: ");
-                                    idDepartamento = Integer.parseInt(scanner.nextLine());
-                                    System.out.println(DEPARTAMENTO + idDepartamento);
-
-                                    List<Empleado> lista = empleadosController.empleadosByDepId(idDepartamento);
-
-                                    System.out.println("Lista de empleados por ID de departamento: " + lista);
-                                    break;
-                                case 2:
-
-                                    System.out.println("Introduce el id del departamento: ");
-                                    idDepartamento = Integer.parseInt(scanner.nextLine());
-                                    System.out.println(DEPARTAMENTO + idDepartamento);
-
-                                    Double edadMedia = empleadosController.edadMediaByDepId(idDepartamento);
-
-                                    System.out.println("Edad media de empleados: " + edadMedia);
-
-                                    break;
-                                case 3:
-                                    Empleado empleadoJoven = empleadosController.empleadoMasJoven();
-
-                                    System.out.println("Emepleado más joven: " + empleadoJoven);
-
-                                    break;
-                                case 4:
-                                    Empleado empleadoViejo = empleadosController.empleadoMasViejo();
-
-                                    System.out.println("Empleado más viejo: " + empleadoViejo);
-
-                                    break;
-                                case 5:
-                                    System.out.println("Introduzca la edad del empleado: ");
-                                    edad = Integer.parseInt(scanner.nextLine());
-                                    System.out.println("Edad: " + edad);
-
-                                    List<Empleado> lista2 = empleadosController.empleadosByEdad(edad);
-
-                                    System.out.println("Lista de empleados por edad: " + lista2);
-                                    break;
-                                default:
-                                    System.out.println("Esta opción no existe");
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
-                        }
                         break;
                     case 0:
                         System.out.println("¡Al fin se acabó!");
@@ -206,5 +148,72 @@ public class Main {
 
         }while (opcion != 0);
 
+    }
+
+    private static void submenu(EmpleadosController empleadosController){
+
+        int idDepartamento;
+        int edad;
+
+
+        try {
+            System.out.println("""
+                                    ¿Qué desea hacer?:
+                                    1. - Obtener empleados por ID de departamento
+                                    2. - Obtener la edad media de un grupo de empleados por ID de departamento
+                                    3. - Empleado más joven
+                                    4. - Empleado más viejo
+                                    5. - Lista de empleados por la edad""");
+            opcion = Integer.parseInt(scanner.nextLine());
+
+            switch (opcion) {
+                case 1:
+
+                    System.out.println("Introduce el id del departamento: ");
+                    idDepartamento = Integer.parseInt(scanner.nextLine());
+                    System.out.println(DEPARTAMENTO + idDepartamento);
+
+                    List<Empleado> lista = empleadosController.empleadosByDepId(idDepartamento);
+
+                    System.out.println("Lista de empleados por ID de departamento: " + lista);
+                    break;
+                case 2:
+
+                    System.out.println("Introduce el id del departamento: ");
+                    idDepartamento = Integer.parseInt(scanner.nextLine());
+                    System.out.println(DEPARTAMENTO + idDepartamento);
+
+                    Double edadMedia = empleadosController.edadMediaByDepId(idDepartamento);
+
+                    System.out.println("Edad media de empleados: " + edadMedia);
+
+                    break;
+                case 3:
+                    Empleado empleadoJoven = empleadosController.empleadoMasJoven();
+
+                    System.out.println("Emepleado más joven: " + empleadoJoven);
+
+                    break;
+                case 4:
+                    Empleado empleadoViejo = empleadosController.empleadoMasViejo();
+
+                    System.out.println("Empleado más viejo: " + empleadoViejo);
+
+                    break;
+                case 5:
+                    System.out.println("Introduzca la edad del empleado: ");
+                    edad = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Edad: " + edad);
+
+                    List<Empleado> lista2 = empleadosController.empleadosByEdad(edad);
+
+                    System.out.println("Lista de empleados por edad: " + lista2);
+                    break;
+                default:
+                    System.out.println("Esta opción no existe");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
