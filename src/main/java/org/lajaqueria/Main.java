@@ -13,6 +13,8 @@ public class Main {
 
     private static int opcion = -1;
 
+    private static final String DEPARTAMENTO = "ID Departamento: ";
+
 
 
     public static void main(String[] args){
@@ -63,7 +65,7 @@ public class Main {
 
                         System.out.println("Insertar ID departamento: ");
                         idDepartamento = Integer.parseInt(scanner.nextLine());
-                        System.out.println("ID Departamento: " + idDepartamento);
+                        System.out.println(DEPARTAMENTO + idDepartamento);
 
                         System.out.println("Insertar nombre departamento: ");
                         nombreDep = scanner.nextLine();
@@ -113,7 +115,7 @@ public class Main {
 
                         System.out.println("Insertar ID departamento: ");
                         idDepartamento = Integer.parseInt(scanner.nextLine());
-                        System.out.println("ID Departamento: " + idDepartamento);
+                        System.out.println(DEPARTAMENTO + idDepartamento);
 
                         System.out.println("Insertar nombre departamento: ");
                         nombreDep = scanner.nextLine();
@@ -147,7 +149,7 @@ public class Main {
 
                                     System.out.println("Introduce el id del departamento: ");
                                     idDepartamento = Integer.parseInt(scanner.nextLine());
-                                    System.out.println("ID Departamento: " + idDepartamento);
+                                    System.out.println(DEPARTAMENTO + idDepartamento);
 
                                     List<Empleado> lista = empleadosController.empleadosByDepId(idDepartamento);
 
@@ -157,7 +159,7 @@ public class Main {
 
                                     System.out.println("Introduce el id del departamento: ");
                                     idDepartamento = Integer.parseInt(scanner.nextLine());
-                                    System.out.println("ID Departamento: " + idDepartamento);
+                                    System.out.println(DEPARTAMENTO + idDepartamento);
 
                                     Double edadMedia = empleadosController.edadMediaByDepId(idDepartamento);
 
