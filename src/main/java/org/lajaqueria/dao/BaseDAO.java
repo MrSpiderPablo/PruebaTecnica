@@ -51,7 +51,7 @@ public abstract class BaseDAO {
                 try {
                     st.close();
                 } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                    
                 }
             }
 
@@ -59,7 +59,7 @@ public abstract class BaseDAO {
                 try {
                     st2.close();
                 }catch (SQLException e){
-                    throw new RuntimeException(e);
+
                 }
             }
         }
