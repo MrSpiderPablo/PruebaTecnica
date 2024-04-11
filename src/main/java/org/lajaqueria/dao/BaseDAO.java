@@ -47,6 +47,14 @@ public abstract class BaseDAO {
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
+        }finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 }
