@@ -9,6 +9,7 @@ import org.lajaqueria.dao.EmpleadoDAOImpl;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 
 public class EmpleadosController {
@@ -64,7 +65,7 @@ public class EmpleadosController {
 
     public void actualizarDepartamento(Departamento departamento){
 
-        departamentoDAO.actuañizarDepartamento(departamento);
+        departamentoDAO.actualizarDepartamento(departamento);
     }
 
     public List<Empleado> empleadosByDepId(int id){
@@ -93,6 +94,10 @@ public class EmpleadosController {
 
         List<Empleado> lista = empleadoDAO.getAll();
 
+        if (lista.isEmpty()){
+            throw new NoSuchElementException();
+        }
+
        return lista.stream().sorted(Comparator.comparing(Empleado::getEdad)).findFirst().get();
 
     }
@@ -100,6 +105,10 @@ public class EmpleadosController {
     public Empleado empleadoMasViejo(){
 
         List<Empleado> lista = empleadoDAO.getAll();
+
+        if (lista.isEmpty()){
+            throw new NoSuchElementException();
+        }
 
         return lista.stream().sorted(Comparator.comparing(Empleado::getEdad).reversed()).findFirst().get();
 
