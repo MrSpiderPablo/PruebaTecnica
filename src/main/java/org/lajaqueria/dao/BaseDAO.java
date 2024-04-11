@@ -4,7 +4,7 @@ import java.sql.*;
 
 public abstract class BaseDAO {
 
-    protected void createDatabase(String dbPath)  {
+    protected void createDatabase(String dbPath) {
 
 
         Statement st = null;
@@ -29,15 +29,15 @@ public abstract class BaseDAO {
                  nombreDep text NOT NULL,
                 );""";
 
-        try(Connection con = DriverManager.getConnection(url)) {
+        try (Connection con = DriverManager.getConnection(url)) {
 
-                if (con != null){
-                    DatabaseMetaData data = con.getMetaData();
-                    System.out.println("The driver name is: " + data.getDriverName());
-                    System.out.println("A new database has been created");
-                }else{
-                    System.out.println("Lo conexión no puede ser nula");
-                }
+            if (con != null) {
+                DatabaseMetaData data = con.getMetaData();
+                System.out.println("The driver name is: " + data.getDriverName());
+                System.out.println("A new database has been created");
+            } else {
+                System.out.println("Lo conexión no puede ser nula");
+            }
 
 
             st = con.createStatement();
@@ -47,20 +47,22 @@ public abstract class BaseDAO {
             st2.execute(sql);
 
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }finally {
+        } finally {
 
             if (st != null) {
                 try {
                     st.close();
                 } catch (SQLException e) {
-            }
+                }
 
-            if (st2 != null){
-                try {
-                    st2.close();
-                }catch (SQLException e){
+                if (st2 != null) {
+                    try {
+                        st2.close();
+                    } catch (SQLException e) {
+                    }
+                }
             }
         }
     }
