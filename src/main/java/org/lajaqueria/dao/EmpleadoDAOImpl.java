@@ -51,11 +51,13 @@ public class EmpleadoDAOImpl extends BaseDAO implements EmpleadoDAO {
 
         Connection con = null;
 
+        PreparedStatement pstmt = null;
+
         try {
 
             con = this.connect();
 
-            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt = con.prepareStatement(sql);
 
 
             pstmt.setInt(1, id);
@@ -71,6 +73,13 @@ public class EmpleadoDAOImpl extends BaseDAO implements EmpleadoDAO {
             if (con != null){
                 try {
                     con.close();
+                }catch (SQLException e){
+                    System.out.println(e.getMessage());
+                }
+            }
+            if (pstmt != null){
+                try {
+                    pstmt.close();
                 }catch (SQLException e){
                     System.out.println(e.getMessage());
                 }
