@@ -28,6 +28,14 @@ public class EmpleadoDAOImpl extends BaseDAO implements EmpleadoDAO {
             con = DriverManager.getConnection(url);
         }catch (SQLException e){
             System.out.println(e.getMessage());
+        }finally {
+            if (con != null){
+                try {
+                    con.close();
+                }catch (SQLException e){
+                    System.out.println(e.getMessage());
+                }
+            }
         }
 
         return con;
@@ -43,6 +51,7 @@ public class EmpleadoDAOImpl extends BaseDAO implements EmpleadoDAO {
 
         try(Connection con = this.connect();
             PreparedStatement pstmt = con.prepareStatement(sql)) {
+
 
             pstmt.setInt(1, id);
             pstmt.setString(2, nombre);
