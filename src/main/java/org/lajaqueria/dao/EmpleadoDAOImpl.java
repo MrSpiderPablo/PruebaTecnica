@@ -49,8 +49,13 @@ public class EmpleadoDAOImpl extends BaseDAO implements EmpleadoDAO {
 
         String sql = "INSERT INTO Empleados(id, nombre, apellido, edad, departamento) VALUES(?,?,?,?,?)";
 
-        try(Connection con = this.connect();
-            PreparedStatement pstmt = con.prepareStatement(sql)) {
+        Connection con = null;
+
+        try {
+
+            con = this.connect();
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
 
 
             pstmt.setInt(1, id);
@@ -62,6 +67,14 @@ public class EmpleadoDAOImpl extends BaseDAO implements EmpleadoDAO {
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
+        }finally {
+            if (con != null){
+                try {
+                    con.close();
+                }catch (SQLException e){
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
 
