@@ -4,7 +4,13 @@ import java.sql.*;
 
 public abstract class BaseDAO {
 
-    protected void createDatabase(String dbPath){
+    protected void createDatabase(String dbPath) throws NullPointerException {
+
+       // Connection con = null;
+
+        Statement st = null;
+
+        Statement st2 = null;
 
         String url = "jdbc:sqlite:" + dbPath;
 
@@ -32,10 +38,10 @@ public abstract class BaseDAO {
                 System.out.println("A new database has been created");
             }
 
-            Statement st = con.createStatement();
+            st = con.createStatement();
             st.execute(sql2);
 
-            Statement st2 = con.createStatement();
+            st2 = con.createStatement();
             st2.execute(sql);
 
 
