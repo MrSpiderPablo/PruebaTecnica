@@ -55,16 +55,12 @@ public abstract class BaseDAO {
                 try {
                     st.close();
                 } catch (SQLException e) {
-
-                }
             }
 
             if (st2 != null){
                 try {
                     st2.close();
                 }catch (SQLException e){
-
-                }
             }
         }
     }
