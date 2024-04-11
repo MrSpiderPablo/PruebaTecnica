@@ -6,7 +6,6 @@ public abstract class BaseDAO {
 
     protected void createDatabase(String dbPath) throws NullPointerException {
 
-       // Connection con = null;
 
         Statement st = null;
 
@@ -52,6 +51,14 @@ public abstract class BaseDAO {
                 try {
                     st.close();
                 } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            if (st2 != null){
+                try {
+                    st2.close();
+                }catch (SQLException e){
                     throw new RuntimeException(e);
                 }
             }
