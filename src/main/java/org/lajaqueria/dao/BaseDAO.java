@@ -6,6 +6,7 @@ public abstract class BaseDAO {
 
     protected void createDatabase(String dbPath) {
 
+        Connection con = null;
 
         Statement st = null;
 
@@ -29,15 +30,13 @@ public abstract class BaseDAO {
                  nombreDep text NOT NULL,
                 );""";
 
-        try (Connection con = DriverManager.getConnection(url)) {
+        try  {
 
-            if (con != null) {
-                DatabaseMetaData data = con.getMetaData();
-                System.out.println("The driver name is: " + data.getDriverName());
-                System.out.println("A new database has been created");
-            } else {
-                System.out.println("Lo conexión no puede ser nula");
-            }
+            con = DriverManager.getConnection(url);
+
+            DatabaseMetaData data = con.getMetaData();
+            System.out.println("The driver name is: " + data.getDriverName());
+            System.out.println("A new database has been created");
 
 
             st = con.createStatement();
@@ -50,6 +49,14 @@ public abstract class BaseDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
+
+            if (con != null){
+                try {
+                    con.close();
+                }catch (SQLException e){
+                    System.out.println(e.getMessage());
+                }
+            }
 
             if (st != null) {
                 try {
