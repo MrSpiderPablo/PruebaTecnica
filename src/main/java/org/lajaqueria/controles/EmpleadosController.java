@@ -10,6 +10,7 @@ import org.lajaqueria.dao.EmpleadoDAOImpl;
 import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 
 public class EmpleadosController {
@@ -95,11 +96,14 @@ public class EmpleadosController {
 
         List<Empleado> lista = empleadoDAO.getAll();
 
-        if (lista.isEmpty()){
-            throw new NoSuchElementException();
-        }
 
-       return lista.stream().sorted(Comparator.comparing(Empleado::getEdad)).findFirst().get();
+        Optional<Empleado> opt = lista.stream().sorted(Comparator.comparing(Empleado::getEdad)).findFirst();
+
+        if (opt.isPresent()){
+            return opt.get();
+        }else {
+            return null;
+        }
 
     }
 
