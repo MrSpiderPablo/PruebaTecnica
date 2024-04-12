@@ -111,11 +111,13 @@ public class EmpleadosController {
 
         List<Empleado> lista = empleadoDAO.getAll();
 
-        if (lista.isEmpty()){
-            throw new NoSuchElementException();
-        }
+       Optional<Empleado> opt2 =  lista.stream().sorted(Comparator.comparing(Empleado::getEdad).reversed()).findFirst();
 
-        return lista.stream().sorted(Comparator.comparing(Empleado::getEdad).reversed()).findFirst().get();
+       if (opt2.isPresent()){
+           return opt2.get();
+       }else {
+           return null;
+       }
 
     }
 
